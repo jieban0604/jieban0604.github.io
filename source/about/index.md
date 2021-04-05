@@ -6,7 +6,5 @@ comment: true
 
 # About me
 
-```markdown
 <div style="color: red;">About me</div>
-```
 
