@@ -4,12 +4,12 @@
 
 # Site
 title: Tyson的个人博客
-subtitle: ''
-description: ''
-keywords: 不问收获，但问耕耘
+subtitle: '网站副标题'
+description: '网站描述'
+keywords: 网站关键词
 author: Tyson
-language: zh
-timezone: ''
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 #menu
 menu:
@@ -103,6 +103,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: keep
+theme_config:
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

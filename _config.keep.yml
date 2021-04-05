@@ -1,0 +1,59 @@
+#参考:https://keep-docs.xpoet.cn/
+base_info:
+  title: Tyson的个人博客
+  author: Tyson
+  url: https://jieban0604.github.io/
+
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+  
+social_contact:
+  enable: true
+  links:
+    github: https://github.com/jieban0604/jieban0604.github.io               # your GitHub URL
+    weixin:               # your WeChat QR-Code URL
+    qq:                   # your QQ QR-Code URL
+    weibo:                # your WeiBo URL
+    zhihu:                # your ZhiHu URL
+    twitter:              # your twitter URL
+    facebook:             # your facebook URL
+    email:                # your email 
+
+style:
+  # Theme primary color
+  primary_color: "#0066CC"
+
+  # Avatar (You can use local image or image external link)
+  avatar: /images/avatar.svg
+
+  # Favicon (You can use local image or image external link)
+  favicon: /images/logo.svg
+
+  # Article image align position, value: left | center
+  article_img_align: left
+
+  # Left side width
+  left_side_width: 260px
+
+  # Content area max width
+  content_max_width: 920px
+
+  # Mouse hover
+  hover:
+    shadow: false # shadow effect when the mouse hover
+    scale: false # scale effect when the mouse hover
+
+  # First screen
+  first_screen:
+    enable: true
+    background_img: /images/bg.svg # You can use local image or image external link
+    description: Keep writing and Keep loving.
+
+  # Scroll style settings
+  scroll:
+    progress_bar:
+      enable: false
+    percent:
+      enable: false
