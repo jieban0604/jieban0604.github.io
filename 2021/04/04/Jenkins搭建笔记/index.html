@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="网站关键词">
+    <meta name="description" content="网站描述">
+    <meta name="author" content="Tyson">
+    
+    <title>
+        
+            Jenkins搭建笔记 |
+        
+        Tyson的个人博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jieban0604.github.io","root":"/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.2"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Tyson的个人博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Jenkins搭建笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Tyson</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-04-04 16:08:55
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>Jenkins安装：<a class="link" target="_blank" rel="noopener" href="https://www.jenkins.io/zh/download/">https://www.jenkins.io/zh/download/<i class="fas fa-external-link-alt"></i></a></p>
+<p>1、首次安装时可不选插件，后续按需下载<br>2、插件下载地址可自定义，通过修改：C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\updates。也可再【插件管理】的高级选项中进行update<br>3、常用插件包括：Localization: Chinese (Simplified)-用于汉化和<br>Role-based Authorization Strategy–用于角色管理</p>
+<p>Credentials Binding–用于凭证管理</p>
+<p>4、调整默认权限策略：管理Jenkins<br>–》Configure Global Security中选择授权策略，调整为Role-Based Strategy<br>5、管理角色：先通过系统管理=》全局安全配置，选择Role-Based Strategy。然后ManagerJenkins==》Manage and Assign Roles==》Manage Roles<br>6、管理凭证：ManageJenkins=》ManageCredentials<br>7、如何生成ssh：命令行输入：ssh-keygen -t rsa，然后再C:\Users\Administrator.ssh即可找到。其中.pub结尾的是公钥，另一个是私钥。公钥可配置再github或gitee等第三方平台上。<br>8、安装后首次启动jenkins：打开安装目录，执行：java -jar Jenkins.war –httpPort=8080<br>平时启动jenkins：net start jenkins</p>
+<p>停止jenkins: net stop jenkins</p>
+<p>重启jenkins：<a class="link" target="_blank" rel="noopener" href="http://localhost:8084/restart">http://localhost:8084/restart<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36710456/article/details/86079557">https://blog.csdn.net/sinat_36710456/article/details/86079557<i class="fas fa-external-link-alt"></i></a><br>9、添加环境变量：ManagerJenkins=》ConfigureSystem=》Environment variables。重启后才能生效。<br>10、Jenkins修改默认工作空间：<a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38093657/article/details/90054843">https://blog.csdn.net/qq_38093657/article/details/90054843<i class="fas fa-external-link-alt"></i></a><br>11、为项目添加构建参数：<a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/wangxu01/articles/11103538.html">https://www.cnblogs.com/wangxu01/articles/11103538.html<i class="fas fa-external-link-alt"></i></a><br>bat命令中要使用%XXX%来获取参数<br>12、gradle 命令传属性参数：gradle -PbuildApp=others buildTask<br><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/zxcofuestc/article/details/88392967">https://blog.csdn.net/zxcofuestc/article/details/88392967<i class="fas fa-external-link-alt"></i></a><br><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39541750/article/details/113075508">https://blog.csdn.net/weixin_39541750/article/details/113075508<i class="fas fa-external-link-alt"></i></a></p>
+<p>13、无法安装插件，提示：unable to find valid certification path to requested target怎么办？：<a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/hzau_boy/article/details/114373469">https://blog.csdn.net/hzau_boy/article/details/114373469<i class="fas fa-external-link-alt"></i></a></p>
+<p>14、反向代理问题：只要保证系统配置中的路径跟访问的路径一致，反向代理就消失了。比如：配置地址为<a href="http://192.169.1.252:8084，而访问地址为http:localhost:8084,就会出现反向代理错误。">http://192.169.1.252:8084，而访问地址为http:localhost:8084,就会出现反向代理错误。</a></p>
+<p>15、Android构建参考：<a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/sz_chrome/article/details/99496148">https://blog.csdn.net/sz_chrome/article/details/99496148<i class="fas fa-external-link-alt"></i></a></p>
+<p>16、如何将slave作为windows服务启动？先下载jenkins-agent.jnlp，使用javaws 启动jnlp文件，然后选择File选项中的以服务形式安装。</p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/04/05/ceshi/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ceshi</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Tyson</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.2</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
